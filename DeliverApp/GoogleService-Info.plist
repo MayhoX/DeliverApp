@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDC0CzgaxCoXSvh6Y8otG3yrh88o8muhvg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>472961725685</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>hk.edu.shape.VT6002-DeliverApp</string>
+	<key>PROJECT_ID</key>
+	<string>vt6002-9a21d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vt6002-9a21d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:472961725685:ios:cdb331e9244e27350dc1bc</string>
+</dict>
+</plist>
