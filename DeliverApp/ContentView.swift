@@ -11,29 +11,27 @@ import GoogleMaps
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
-    
+    @EnvironmentObject var faceIDModel: FaceIDModel
     init() {
         GMSServices.provideAPIKey("AIzaSyD_zf_tp4udYWjf3DfanaTMAEu6rmNYphA")
     }
     
+    
+    
     var body: some View {
-        Group {
-            if viewModel.userSession != nil{
-                TabView {
-                    MapView()
-                        .tabItem {
-                            Label("Map", systemImage: "map")
-                        }
-                    
-                    
-                    ProfileView()
-                        .tabItem {
-                            Label("Profile", systemImage: "person")
-                        }
-                }
-                
-            } else {
-                LoginView()
+        //        Group {
+        if !viewModel.login && !faceIDModel.isAuthenicated {
+            LoginView()
+        } else {
+            TabView {
+                MapView()
+                    .tabItem {
+                        Label("Map", systemImage: "map")
+                    }
+                ProfileView()
+                    .tabItem {
+                        Label("Profile", systemImage: "person")
+                    }
             }
         }
     }

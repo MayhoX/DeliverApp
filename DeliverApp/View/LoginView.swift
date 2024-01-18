@@ -7,11 +7,13 @@
 
 import SwiftUI
 
+
 struct LoginView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var faceIDModel: FaceIDModel
     
     var body: some View {
         NavigationStack{
@@ -19,28 +21,57 @@ struct LoginView: View {
                 Image("logo")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 180, height: 60)
+                    .frame(width: 180, height: 120)
                     .padding(.vertical, 32)
             
                 VStack{
                     TextField("Email", text: $email)
                         .padding()
-                        .background(Color.white)
                         .cornerRadius(10.0)
-                        .padding(.bottom, 20)
                         .shadow(radius: 1)
                         .padding(.horizontal)
                         .autocapitalization(.none)
-                        
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.white, lineWidth: 1)
+                        )
+                        .padding(.bottom, 20)
+                    
                     
                     SecureField("Password", text: $password)
                         .padding()
-                        .background(Color.white)
                         .cornerRadius(10.0)
-                        .padding(.bottom, 20)
                         .shadow(radius: 1)
                         .padding(.horizontal)
                         .autocapitalization(.none)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.white, lineWidth: 1)
+                        )
+                        .padding(.bottom, 20)
+                    
+                    
+                    if viewModel.userSession != nil {
+                        Button(action: {
+                            
+                            faceIDModel.evaluatePolicy()
+                            
+                            
+                            
+                        }) {
+                            HStack {
+                                Image(systemName: "faceid")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                Text("Authenticate with Face ID")
+                            }
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                        }
+                    }
+
                     
                     Button(action: {
                         Task {
@@ -79,8 +110,13 @@ struct LoginView: View {
             }
         }
     }
-}
+    
 
+    
+    
+    
+    
+}
 
 extension LoginView: AuthProtocol {
     var formIsValid: Bool {

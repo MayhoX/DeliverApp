@@ -10,6 +10,7 @@ import Firebase
 @main
 struct DeliverAppApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var faceIDModel = FaceIDModel()
     
     init() {
         FirebaseApp.configure()
@@ -24,6 +25,7 @@ struct DeliverAppApp: App {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(viewModel)
+                .environmentObject(faceIDModel)
                 
         }
     }

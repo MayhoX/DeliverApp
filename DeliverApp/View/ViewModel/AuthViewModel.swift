@@ -18,9 +18,12 @@ protocol AuthProtocol {
 class AuthViewModel: ObservableObject{
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var login: Bool
+    let faceIDModel = FaceIDModel()
     
     init(){
         self.userSession = Auth.auth().currentUser
+        self.login = false
         
         Task {
             await fethUser()
@@ -33,6 +36,7 @@ class AuthViewModel: ObservableObject{
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
+            self.login = true
             await fethUser()
         } catch {
             print("Error Login \(error.localizedDescription)")
@@ -44,7 +48,7 @@ class AuthViewModel: ObservableObject{
         do{
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
-            let user = User(id: result.user.uid, firstName: firstName, lastName: lastName, email: email)
+            let user = User(id: result.user.uid, firstName: firstName, lastName: lastName, email: email, state: "user")
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fethUser()
@@ -54,11 +58,14 @@ class AuthViewModel: ObservableObject{
         print("sign Up!!")
     }
     
+    
     func signOut(){
         do{
             try Auth.auth().signOut()
             self.userSession = nil
             self.currentUser = nil
+            self.login = false
+            faceIDModel.isAuthenicated = false
         } catch {
             print("ERROR SIGN OUT \(error.localizedDescription)")
         }
@@ -66,7 +73,6 @@ class AuthViewModel: ObservableObject{
     
     func fethUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        
         do {
             let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
             self.currentUser = try snapshot.data(as: User.self)
@@ -74,6 +80,9 @@ class AuthViewModel: ObservableObject{
             print("ERROR GETTING USER DOC \(error.localizedDescription)")
         }
     }
+    
+
+    
     
     
 }

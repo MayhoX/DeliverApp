@@ -22,54 +22,67 @@ struct RegisterView: View {
             Image("logo")
                 .resizable()
                 .scaledToFill()
-                .frame(width: 180, height: 60)
+                .frame(width: 180, height: 120)
                 .padding(.vertical, 32)
             
             VStack{
                 TextField("Frist Name", text: $firstName)
                     .padding()
-                    .background(Color.white)
                     .cornerRadius(10.0)
-                    .padding(.bottom, 20)
                     .shadow(radius: 1)
                     .padding(.horizontal)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                    .padding(.bottom, 20)
                 
                 TextField("Last Name", text: $lastName)
                     .padding()
-                    .background(Color.white)
                     .cornerRadius(10.0)
-                    .padding(.bottom, 20)
                     .shadow(radius: 1)
                     .padding(.horizontal)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                    .padding(.bottom, 20)
                 
                 TextField("Email", text: $email)
                     .padding()
-                    .background(Color.white)
                     .cornerRadius(10.0)
-                    .padding(.bottom, 20)
                     .shadow(radius: 1)
                     .padding(.horizontal)
                     .autocapitalization(.none)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                    .padding(.bottom, 20)
                 
                 SecureField("Password", text: $password)
                     .padding()
-                    .background(Color.white)
                     .cornerRadius(10.0)
-                    .padding(.bottom, 20)
                     .shadow(radius: 1)
                     .padding(.horizontal)
                     .autocapitalization(.none)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                    .padding(.bottom, 20)
                 
                 SecureField("Confirm Password", text: $confirmPassword)
                     .padding()
-                    .background(Color.white)
                     .cornerRadius(10.0)
-                    .padding(.bottom, 20)
                     .shadow(radius: 1)
                     .padding(.horizontal)
                     .autocapitalization(.none)
-                    
-                
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                    .padding(.bottom, 20)
                 
                 
                 Button(action: {

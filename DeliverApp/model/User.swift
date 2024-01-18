@@ -13,6 +13,7 @@ struct User: Identifiable, Codable {
     let firstName: String
     let lastName: String
     let email: String
+    let state: String
     
     var fullName: String {
         return "\(firstName) \(lastName)"
@@ -33,7 +34,7 @@ struct User: Identifiable, Codable {
 
 extension User {
     static var example: User {
-        User(id: NSUUID().uuidString, firstName: "Evan", lastName: "Wong", email: "test@gmail.com")
+        User(id: NSUUID().uuidString, firstName: "Evan", lastName: "Wong", email: "test@gmail.com", state: "user")
     }
 }
 
