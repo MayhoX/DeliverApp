@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200AF2012B5CE1EF008E8749 /* AddDeliveryShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AF2002B5CE1EF008E8749 /* AddDeliveryShopView.swift */; };
+		200AF2032B5CE2AD008E8749 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AF2022B5CE2AC008E8749 /* ShopViewModel.swift */; };
 		2046B7DA2B53D63C00DDF21C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046B7D92B53D63C00DDF21C /* LoginView.swift */; };
 		2046B7DC2B53E21600DDF21C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046B7DB2B53E21600DDF21C /* ProfileView.swift */; };
 		2046B7DF2B53E44F00DDF21C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046B7DE2B53E44F00DDF21C /* User.swift */; };
@@ -38,7 +40,7 @@
 		209DF3182B55421A004CA8B7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209DF3172B55421A004CA8B7 /* CoreLocation.framework */; };
 		209DF31A2B5543AF004CA8B7 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209DF3192B5543AF004CA8B7 /* MapViewModel.swift */; };
 		20B543C12B569604009A2480 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B543C02B569604009A2480 /* HomeView.swift */; };
-		20B543C32B56971D009A2480 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B543C22B56971D009A2480 /* Location.swift */; };
+		20B543C32B56971D009A2480 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B543C22B56971D009A2480 /* Shop.swift */; };
 		20CB7CE12B57F02400B4291E /* FaceIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CB7CE02B57F02300B4291E /* FaceIDModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		200AF2002B5CE1EF008E8749 /* AddDeliveryShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeliveryShopView.swift; sourceTree = "<group>"; };
+		200AF2022B5CE2AC008E8749 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		2046B7D92B53D63C00DDF21C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2046B7DB2B53E21600DDF21C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2046B7DE2B53E44F00DDF21C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -83,7 +87,7 @@
 		209DF3172B55421A004CA8B7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		209DF3192B5543AF004CA8B7 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		20B543C02B569604009A2480 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		20B543C22B56971D009A2480 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		20B543C22B56971D009A2480 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		20CB7CE02B57F02300B4291E /* FaceIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,14 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2046B7DD2B53E43600DDF21C /* model */ = {
+		2046B7DD2B53E43600DDF21C /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				2046B7DE2B53E44F00DDF21C /* User.swift */,
-				20B543C22B56971D009A2480 /* Location.swift */,
+				20B543C22B56971D009A2480 /* Shop.swift */,
 				20CB7CE02B57F02300B4291E /* FaceIDModel.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2046B7E82B53E88500DDF21C /* ViewModel */ = {
@@ -139,6 +143,7 @@
 			children = (
 				2046B7EB2B53E8B900DDF21C /* AuthViewModel.swift */,
 				209DF3192B5543AF004CA8B7 /* MapViewModel.swift */,
+				200AF2022B5CE2AC008E8749 /* ShopViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -186,7 +191,7 @@
 			children = (
 				2046B7EE2B53EBD000DDF21C /* app */,
 				2046B7ED2B53EBA900DDF21C /* coreData */,
-				2046B7DD2B53E43600DDF21C /* model */,
+				2046B7DD2B53E43600DDF21C /* Model */,
 				208C70E22B53D415000B9B51 /* View */,
 				206C2B762B52A1740063DC4A /* ContentView.swift */,
 				206C2B782B52A1770063DC4A /* Assets.xcassets */,
@@ -233,11 +238,12 @@
 		208C70E22B53D415000B9B51 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2046B7EF2B5407B300DDF21C /* MapView.swift */,
 				20B543C02B569604009A2480 /* HomeView.swift */,
-				208C70E32B53D4CF000B9B51 /* RegisterView.swift */,
-				2046B7D92B53D63C00DDF21C /* LoginView.swift */,
+				2046B7EF2B5407B300DDF21C /* MapView.swift */,
 				2046B7DB2B53E21600DDF21C /* ProfileView.swift */,
+				200AF2002B5CE1EF008E8749 /* AddDeliveryShopView.swift */,
+				2046B7D92B53D63C00DDF21C /* LoginView.swift */,
+				208C70E32B53D4CF000B9B51 /* RegisterView.swift */,
 				2046B7E82B53E88500DDF21C /* ViewModel */,
 			);
 			path = View;
@@ -397,7 +403,9 @@
 				206C2B7E2B52A1770063DC4A /* Persistence.swift in Sources */,
 				2046B7F02B5407B400DDF21C /* MapView.swift in Sources */,
 				2046B7DA2B53D63C00DDF21C /* LoginView.swift in Sources */,
-				20B543C32B56971D009A2480 /* Location.swift in Sources */,
+				200AF2012B5CE1EF008E8749 /* AddDeliveryShopView.swift in Sources */,
+				20B543C32B56971D009A2480 /* Shop.swift in Sources */,
+				200AF2032B5CE2AD008E8749 /* ShopViewModel.swift in Sources */,
 				206C2B772B52A1740063DC4A /* ContentView.swift in Sources */,
 				206C2B752B52A1740063DC4A /* DeliverAppApp.swift in Sources */,
 				2046B7DF2B53E44F00DDF21C /* User.swift in Sources */,

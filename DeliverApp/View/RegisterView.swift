@@ -28,60 +28,61 @@ struct RegisterView: View {
             VStack{
                 TextField("Frist Name", text: $firstName)
                     .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(UIColor.label), lineWidth: 3)
+                    )
                     .cornerRadius(10.0)
                     .shadow(radius: 1)
                     .padding(.horizontal)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 5)
                 
                 TextField("Last Name", text: $lastName)
                     .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(UIColor.label), lineWidth: 3)
+                    )
                     .cornerRadius(10.0)
                     .shadow(radius: 1)
                     .padding(.horizontal)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 5)
                 
                 TextField("Email", text: $email)
                     .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(UIColor.label), lineWidth: 3)
+                    )
                     .cornerRadius(10.0)
                     .shadow(radius: 1)
                     .padding(.horizontal)
                     .autocapitalization(.none)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 5)
                 
                 SecureField("Password", text: $password)
                     .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(UIColor.label), lineWidth: 3)
+                    )
                     .cornerRadius(10.0)
                     .shadow(radius: 1)
                     .padding(.horizontal)
                     .autocapitalization(.none)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
-                    .padding(.bottom, 20)
+
+                    .padding(.bottom, 5)
                 
                 SecureField("Confirm Password", text: $confirmPassword)
                     .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(UIColor.label), lineWidth: 3)
+                    )
                     .cornerRadius(10.0)
                     .shadow(radius: 1)
                     .padding(.horizontal)
                     .autocapitalization(.none)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
                     .padding(.bottom, 20)
                 
                 

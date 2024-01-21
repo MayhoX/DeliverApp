@@ -24,6 +24,10 @@ struct ContentView: View {
             LoginView()
         } else {
             TabView {
+                HomeView()
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
                 MapView()
                     .tabItem {
                         Label("Map", systemImage: "map")

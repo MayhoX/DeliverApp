@@ -55,7 +55,6 @@ class AuthViewModel: ObservableObject{
         } catch {
             print("ERROR SIGN UP \(error.localizedDescription)")
         }
-        print("sign Up!!")
     }
     
     

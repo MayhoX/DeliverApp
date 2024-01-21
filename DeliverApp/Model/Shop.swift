@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import PhotosUI
 
 
 struct Shop: Identifiable, Codable{
     let id: String
     let name : String
-    let latitude : Double
-    let longitude : Double
+    let latitude : String
+    let longitude : String
     let address : String
-
+    let image : Data
 }
 
 

@@ -27,37 +27,33 @@ struct LoginView: View {
                 VStack{
                     TextField("Email", text: $email)
                         .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(UIColor.label), lineWidth: 3)
+                        )
                         .cornerRadius(10.0)
                         .shadow(radius: 1)
                         .padding(.horizontal)
                         .autocapitalization(.none)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.white, lineWidth: 1)
-                        )
-                        .padding(.bottom, 20)
+                        .padding(.bottom, 5)
                     
                     
                     SecureField("Password", text: $password)
                         .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(UIColor.label), lineWidth: 3)
+                        )
                         .cornerRadius(10.0)
                         .shadow(radius: 1)
                         .padding(.horizontal)
                         .autocapitalization(.none)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.white, lineWidth: 1)
-                        )
                         .padding(.bottom, 20)
                     
                     
                     if viewModel.userSession != nil {
                         Button(action: {
-                            
                             faceIDModel.evaluatePolicy()
-                            
-                            
-                            
                         }) {
                             HStack {
                                 Image(systemName: "faceid")

@@ -10,8 +10,26 @@ import Firebase
 
 
 struct HomeView: View {
+    @State var isSheetPresented: Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                
+            }
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        self.isSheetPresented = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $isSheetPresented) {
+                AddDeliveryShopView(isSheetPresented: $isSheetPresented)
+            }
+        }
     }
 }
 
