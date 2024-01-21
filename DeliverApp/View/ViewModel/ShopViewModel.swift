@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 
 
 class ShopViewModel: ObservableObject {
-    @Published var location: Shop?
+    @Published var shop: Shop?
     
     
     

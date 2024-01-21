@@ -26,7 +26,7 @@ class AuthViewModel: ObservableObject{
         self.login = false
         
         Task {
-            await fethUser()
+            await fetchUser()
         }
     }
     
@@ -37,7 +37,7 @@ class AuthViewModel: ObservableObject{
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
             self.login = true
-            await fethUser()
+            await fetchUser()
         } catch {
             print("Error Login \(error.localizedDescription)")
         }
@@ -51,7 +51,7 @@ class AuthViewModel: ObservableObject{
             let user = User(id: result.user.uid, firstName: firstName, lastName: lastName, email: email, state: "user")
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
-            await fethUser()
+            await fetchUser()
         } catch {
             print("ERROR SIGN UP \(error.localizedDescription)")
         }
@@ -70,7 +70,7 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    func fethUser() async {
+    func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         do {
             let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
