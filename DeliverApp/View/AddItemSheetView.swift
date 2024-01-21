@@ -110,6 +110,9 @@ struct AddItemSheetView: View {
 
 extension AddItemSheetView: AuthProtocol {
     var formIsValid: Bool {
+        guard let validPrice = Double(price), validPrice >= 0.0 else {
+            return false
+        }
         return !name.isEmpty &&
         !description.isEmpty &&
         !price.isEmpty &&

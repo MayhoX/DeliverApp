@@ -43,6 +43,8 @@
 		20840CF72B5D80630028780D /* AddItemSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20840CF62B5D80630028780D /* AddItemSheetView.swift */; };
 		20840CF92B5D837F0028780D /* SItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20840CF82B5D837F0028780D /* SItem.swift */; };
 		20840CFB2B5D83DC0028780D /* SItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20840CFA2B5D83DC0028780D /* SItemViewModel.swift */; };
+		20840CFD2B5D98160028780D /* SItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20840CFC2B5D98160028780D /* SItemListView.swift */; };
+		20840CFF2B5D9A820028780D /* SItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20840CFE2B5D9A820028780D /* SItemDetailView.swift */; };
 		208C70E42B53D4CF000B9B51 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C70E32B53D4CF000B9B51 /* RegisterView.swift */; };
 		209DF3182B55421A004CA8B7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209DF3172B55421A004CA8B7 /* CoreLocation.framework */; };
 		209DF31A2B5543AF004CA8B7 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209DF3192B5543AF004CA8B7 /* MapViewModel.swift */; };
@@ -97,6 +99,8 @@
 		20840CF62B5D80630028780D /* AddItemSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemSheetView.swift; sourceTree = "<group>"; };
 		20840CF82B5D837F0028780D /* SItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SItem.swift; sourceTree = "<group>"; };
 		20840CFA2B5D83DC0028780D /* SItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SItemViewModel.swift; sourceTree = "<group>"; };
+		20840CFC2B5D98160028780D /* SItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SItemListView.swift; sourceTree = "<group>"; };
+		20840CFE2B5D9A820028780D /* SItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SItemDetailView.swift; sourceTree = "<group>"; };
 		208C70E32B53D4CF000B9B51 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		209DF3172B55421A004CA8B7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		209DF3192B5543AF004CA8B7 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				204283322B5D201500024580 /* ShopListView.swift */,
 				204283342B5D203600024580 /* ShopDetailView.swift */,
 				200AF2002B5CE1EF008E8749 /* AddDeliveryShopSheetView.swift */,
+				20840CFC2B5D98160028780D /* SItemListView.swift */,
+				20840CFE2B5D9A820028780D /* SItemDetailView.swift */,
 				20840CF62B5D80630028780D /* AddItemSheetView.swift */,
 				2046B7EF2B5407B300DDF21C /* MapView.swift */,
 				2042832E2B5D0ACB00024580 /* MapInfoView.swift */,
@@ -433,6 +439,8 @@
 				200AF2032B5CE2AD008E8749 /* ShopViewModel.swift in Sources */,
 				206C2B772B52A1740063DC4A /* ContentView.swift in Sources */,
 				204283352B5D203600024580 /* ShopDetailView.swift in Sources */,
+				20840CFD2B5D98160028780D /* SItemListView.swift in Sources */,
+				20840CFF2B5D9A820028780D /* SItemDetailView.swift in Sources */,
 				206C2B752B52A1740063DC4A /* DeliverAppApp.swift in Sources */,
 				2046B7DF2B53E44F00DDF21C /* User.swift in Sources */,
 				20CB7CE12B57F02400B4291E /* FaceIDModel.swift in Sources */,

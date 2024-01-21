@@ -1,34 +1,34 @@
 //
-//  ShopListView.swift
+//  SItemListView.swift
 //  DeliverApp
 //
-//  Created by Evan Wong on 21/1/2024.
+//  Created by Evan Wong on 22/1/2024.
 //
 
 import SwiftUI
 
-struct ShopListView: View {
-    var shops: [Shop]
-    var onShopSelected: (Shop) -> Void
+struct SItemListView: View {
+    var sitems: [SItem]
+    var onShopSelected: (SItem) -> Void
 
     var body: some View {
-        List(shops) { shop in
-            NavigationLink(destination: ShopDetailView(shop: shop)) {
-                ShopListRowView(shop: shop, onSelected: {
-                    onShopSelected(shop)
+        List(sitems) { sitem in
+            NavigationLink(destination: SItemDetailView(sitem: sitem)) {
+                SItemListRowView(sitem: sitem, onSelected: {
+                    onShopSelected(sitem)
                 })
             }
         }
     }
 }
 
-struct ShopListRowView: View {
-    var shop: Shop
+struct SItemListRowView: View {
+    var sitem: SItem
     var onSelected: () -> Void
     
     var body: some View {
         HStack {
-            if let uiImage = UIImage(data: shop.image) {
+            if let uiImage = UIImage(data: sitem.image) {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -36,9 +36,11 @@ struct ShopListRowView: View {
             }
             
             VStack(alignment: .leading) {
-                Text(shop.name)
+                Text(sitem.name)
                     .font(.headline)
-                Text(shop.address)
+                Text(sitem.description)
+                    .font(.subheadline)
+                Text(sitem.price)
                     .font(.subheadline)
             }
             
@@ -47,10 +49,9 @@ struct ShopListRowView: View {
             Button(action: {
                 onSelected()
             }) {
-      
+                
             }
         }
         .padding()
     }
-    
 }

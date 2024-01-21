@@ -13,7 +13,7 @@ class SItemViewModel: ObservableObject{
     @Published var sItem: SItem?
     @Published var sItems: [SItem] = []
     
-    func fetchShops(shopID: String) async {
+    func fetchSItems(shopID: String) async {
         do {
             let querySnapshot = try await Firestore.firestore().collection("shops").document(shopID).collection("sitems").getDocuments()
             self.sItems = try querySnapshot.documents.compactMap {

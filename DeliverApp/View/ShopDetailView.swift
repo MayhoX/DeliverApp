@@ -10,6 +10,7 @@ import SwiftUI
 struct ShopDetailView: View {
     @State var isSheetPresented: Bool = false
     @EnvironmentObject var userViewModel: AuthViewModel
+    @State private var selectedSItem: SItem?
     @StateObject var sitemViewModel = SItemViewModel()
     
     var shop: Shop
@@ -35,22 +36,33 @@ struct ShopDetailView: View {
             Text("Address: \(shop.address)")
                 .font(.subheadline)
             
-            Spacer()
-            
-            
-            //to show the list of the item
-            
-            
-            
         }
+        
+        Divider()
+        
+        VStack {
+            if !sitemViewModel.sItems.isEmpty {
+                ForEach(sitemViewModel.sItems) { sitem in
+                    SItemListRowView(sitem: sitem, onSelected: {
+                        selectedSItem = sitem
+                    })
+                    .sheet(item: $selectedSItem) { selectedSItem in
+                        SItemDetailView(sitem: selectedSItem)
+                    }
+                }
+            } else {
+                Text("No items available.")
+            }
+        }
+        
+        Spacer()
         .toolbar {
             ToolbarItem {
                 if (userViewModel.currentUser?.state == "admin"){
                     Button {
                         Task {
-                            await sitemViewModel.fetchShops(shopID: shopID)
+                            await sitemViewModel.fetchSItems(shopID: shopID)
                         }
-                        
                         self.isSheetPresented = true
                     } label: {
                         Image(systemName: "plus")
@@ -60,6 +72,11 @@ struct ShopDetailView: View {
         }
         .sheet(isPresented: $isSheetPresented) {
             AddItemSheetView(isSheetPresented: $isSheetPresented, shopID: $shopID)
+        }
+        .onAppear {
+            Task {
+                await sitemViewModel.fetchSItems(shopID: shopID)
+            }
         }
         .padding()
         .navigationTitle("Shop Detail")
