@@ -59,7 +59,9 @@ struct ProfileView: View {
                             primaryButton: .destructive(
                                 Text("Yes"),
                                 action: {
-                                    viewModel.signOut()
+                                    Task {
+                                       try await viewModel.signOut()
+                                    }
                                 }
                             ),
                             secondaryButton: .cancel(Text("No"))

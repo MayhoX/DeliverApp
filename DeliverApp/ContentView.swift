@@ -12,6 +12,7 @@ import GoogleMaps
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var faceIDModel: FaceIDModel
+    
     init() {
         GMSServices.provideAPIKey("AIzaSyD_zf_tp4udYWjf3DfanaTMAEu6rmNYphA")
     }
@@ -19,7 +20,6 @@ struct ContentView: View {
     
     
     var body: some View {
-        //        Group {
         if !viewModel.login && !faceIDModel.isAuthenicated {
             LoginView()
         } else {

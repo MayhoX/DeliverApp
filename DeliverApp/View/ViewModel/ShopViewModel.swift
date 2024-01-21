@@ -12,8 +12,19 @@ import FirebaseFirestoreSwift
 
 class ShopViewModel: ObservableObject {
     @Published var shop: Shop?
+    @Published var shops: [Shop] = []
     
-    
+    func fetchShops() async {
+        do {
+            let querySnapshot = try await Firestore.firestore().collection("shops").getDocuments()
+            self.shops = try querySnapshot.documents.compactMap {
+                try $0.data(as: Shop.self)
+            }
+        } catch {
+            print("ERROR FETCHING SHOPS: \(error)")
+        }
+    }
+
     
     func AddShop(name: String, latitude: String, longitude: String, address: String, image: Data) async throws{
         do{
@@ -25,6 +36,8 @@ class ShopViewModel: ObservableObject {
             print("ERROR ADD SHOP \(error.localizedDescription)")
         }
     }
+    
+    
     
 }
 

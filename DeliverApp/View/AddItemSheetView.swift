@@ -1,27 +1,24 @@
 //
-//  AddDeliveryShopSheetView.swift
+//  AddItemSheetView.swift
 //  DeliverApp
 //
-//  Created by Evan Wong on 21/1/2024.
+//  Created by Evan Wong on 22/1/2024.
 //
 
 import SwiftUI
 import PhotosUI
 
-struct AddDeliveryShopSheetView: View {
-    
+struct AddItemSheetView: View {
     @State private var name: String = ""
-    @State private var latitude: String = ""
-    @State private var longitude: String = ""
-    @State private var address: String = ""
+    @State private var description: String = ""
+    @State private var price: String = ""
     @Binding var isSheetPresented: Bool
-    @StateObject var shopViewModel = ShopViewModel()
-    
+    @Binding var shopID: String
     @State var data: Data?
     @State var selectedItem: [PhotosPickerItem] = []
+    @StateObject var sItemViewModel = SItemViewModel()
     
     var body: some View {
-        
         VStack{
             Section {
                 PhotosPicker(selection: $selectedItem, maxSelectionCount: 1, selectionBehavior: .default, matching: .images, preferredItemEncoding: .automatic) {
@@ -62,7 +59,7 @@ struct AddDeliveryShopSheetView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 5)
             
-            TextField("Latitude", text: $latitude)
+            TextField("Description", text: $description)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -73,36 +70,27 @@ struct AddDeliveryShopSheetView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 5)
             
-            TextField("Longitude", text: $longitude)
+            TextField("Price", text: $price)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color(UIColor.label), lineWidth: 3)
                 )
+                .keyboardType(.decimalPad)
                 .cornerRadius(10.0)
                 .shadow(radius: 1)
                 .padding(.horizontal)
                 .padding(.bottom, 5)
-            
-            TextField("Address", text: $address)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color(UIColor.label), lineWidth: 3)
-                )
-                .cornerRadius(10.0)
-                .shadow(radius: 1)
-                .padding(.horizontal)
-                .padding(.bottom, 5)
-            
             
             Button(action: {
                 Task {
-                    try await shopViewModel.AddShop(name: name, latitude: latitude, longitude: longitude, address: address, image: data!)
+                    
+                    try await sItemViewModel.AddSItem(name: name, description: description, price: price, image: data!, shopID: shopID)
                     isSheetPresented = false
                 }
+                    
             }) {
-                Text("Add Shop")
+                Text("Add Item")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
@@ -120,18 +108,11 @@ struct AddDeliveryShopSheetView: View {
 }
 
 
-
-extension AddDeliveryShopSheetView: AuthProtocol {
+extension AddItemSheetView: AuthProtocol {
     var formIsValid: Bool {
         return !name.isEmpty &&
-        !latitude.isEmpty &&
-        !longitude.isEmpty &&
-        !address.isEmpty &&
+        !description.isEmpty &&
+        !price.isEmpty &&
         data != nil
     }
-}
-
-
-#Preview {
-    AddDeliveryShopSheetView(isSheetPresented: .constant(true))
 }

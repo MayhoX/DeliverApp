@@ -92,6 +92,7 @@ struct RegisterView: View {
                                                    password: password,
                                                    firstName: firstName,
                                                    lastName: lastName)
+                        dismiss()
                     }
                 }) {
                     Text("Sign Up")

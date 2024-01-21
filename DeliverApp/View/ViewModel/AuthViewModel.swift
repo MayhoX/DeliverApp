@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
+import FirebaseAnalytics
 
 
 protocol AuthProtocol {
@@ -19,7 +20,9 @@ class AuthViewModel: ObservableObject{
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     @Published var login: Bool
-    let faceIDModel = FaceIDModel()
+    @Published var loginMethod: LoginMethod = .none
+    var faceIDModel: FaceIDModel?
+    
     
     init(){
         self.userSession = Auth.auth().currentUser
@@ -30,45 +33,54 @@ class AuthViewModel: ObservableObject{
         }
     }
     
+    func setFaceIDModel(_ faceIDModel: FaceIDModel) {
+            self.faceIDModel = faceIDModel
+        }
     
     
     func signIn(email: String, password: String) async throws {
-        do {
-            let result = try await Auth.auth().signIn(withEmail: email, password: password)
-            self.userSession = result.user
-            self.login = true
-            await fetchUser()
-        } catch {
-            print("Error Login \(error.localizedDescription)")
+            do {
+                let result = try await Auth.auth().signIn(withEmail: email, password: password)
+                self.userSession = result.user
+                self.login = true
+                self.loginMethod = .emailAndPassword
+                await fetchUser()
+            } catch {
+                print("Error Login \(error.localizedDescription)")
+            }
         }
-    }
     
     
-    func signUp(email: String, password: String, firstName: String, lastName: String) async throws{
-        do{
+    func signUp(email: String, password: String, firstName: String, lastName: String) async throws {
+        do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
             let user = User(id: result.user.uid, firstName: firstName, lastName: lastName, email: email, state: "user")
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
+            self.loginMethod = .emailAndPassword
         } catch {
             print("ERROR SIGN UP \(error.localizedDescription)")
         }
     }
     
     
-    func signOut(){
-        do{
+    func signOut() async throws{
+        do {
             try Auth.auth().signOut()
             self.userSession = nil
             self.currentUser = nil
             self.login = false
-            faceIDModel.isAuthenicated = false
+            self.loginMethod = .none
+            try await faceIDModel?.isAuthenicated = false
         } catch {
             print("ERROR SIGN OUT \(error.localizedDescription)")
         }
     }
+
+
+    
     
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -81,7 +93,11 @@ class AuthViewModel: ObservableObject{
     }
     
 
-    
+    enum LoginMethod {
+        case none
+        case emailAndPassword
+        case faceID
+    }
     
     
 }
