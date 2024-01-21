@@ -13,7 +13,7 @@ import FirebaseFirestoreSwift
 class MapViewModel: ObservableObject {
        
     @Published var shops: [Shop] = []
-    
+    @Published var selectedShop: Shop?
     private var db = Firestore.firestore()
 
     func fetchShops() {

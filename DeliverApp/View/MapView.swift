@@ -14,17 +14,18 @@ import CoreLocation
 struct MapView: View {
     
     @StateObject private var mapViewModel = MapViewModel()
+    @State var isShowingSheet: Bool = false
+    
     
     var body: some View {
-//        Map()
-//            .edgesIgnoringSafeArea(.top)
-        
-        MapInfoView(mapViewModel: mapViewModel)
+        MapInfoView(mapViewModel: mapViewModel, isShowingSheet: $isShowingSheet, selectedShop: $mapViewModel.selectedShop)
             .edgesIgnoringSafeArea(.top)
             .onAppear {
                 mapViewModel.fetchShops()
             }
-
+            .sheet(item: $mapViewModel.selectedShop) { selectedShop in
+                            ShopInfoSheetView(shop: selectedShop)
+            }
     
         
     }

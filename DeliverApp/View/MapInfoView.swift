@@ -13,6 +13,9 @@ struct MapInfoView: UIViewRepresentable {
     
     @ObservedObject var mapViewModel: MapViewModel
     
+    @Binding var isShowingSheet: Bool
+//    @State var selectedShop: Shop?
+    @Binding var selectedShop: Shop?
     @State private var locationManager = CLLocationManager()
     @State private var userLocation: CLLocationCoordinate2D?
 
@@ -36,6 +39,7 @@ struct MapInfoView: UIViewRepresentable {
         locationManager.startUpdatingLocation()
         
         mapView.isMyLocationEnabled = true
+        mapView.delegate = context.coordinator
         
         return mapView
     }
@@ -44,7 +48,7 @@ struct MapInfoView: UIViewRepresentable {
         Coordinator(self)
     }
 
-    class Coordinator: NSObject, CLLocationManagerDelegate {
+    class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         var parent: MapInfoView
         
         init(_ parent: MapInfoView) {
@@ -56,6 +60,15 @@ struct MapInfoView: UIViewRepresentable {
                 parent.userLocation = location
             }
         }
+        
+        func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+            if let shop = parent.mapViewModel.shops.first(where: { $0.name == marker.title }) {
+                parent.selectedShop = shop
+            }
+            return false
+        }
+
+        
     }
 }
 

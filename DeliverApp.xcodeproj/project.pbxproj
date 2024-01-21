@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		200AF2012B5CE1EF008E8749 /* AddDeliveryShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AF2002B5CE1EF008E8749 /* AddDeliveryShopView.swift */; };
+		200AF2012B5CE1EF008E8749 /* AddDeliveryShopSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AF2002B5CE1EF008E8749 /* AddDeliveryShopSheetView.swift */; };
 		200AF2032B5CE2AD008E8749 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AF2022B5CE2AC008E8749 /* ShopViewModel.swift */; };
 		2042832F2B5D0ACB00024580 /* MapInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042832E2B5D0ACB00024580 /* MapInfoView.swift */; };
+		204283312B5D141900024580 /* ShopInfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204283302B5D141900024580 /* ShopInfoSheetView.swift */; };
 		2046B7DA2B53D63C00DDF21C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046B7D92B53D63C00DDF21C /* LoginView.swift */; };
 		2046B7DC2B53E21600DDF21C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046B7DB2B53E21600DDF21C /* ProfileView.swift */; };
 		2046B7DF2B53E44F00DDF21C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046B7DE2B53E44F00DDF21C /* User.swift */; };
@@ -63,9 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		200AF2002B5CE1EF008E8749 /* AddDeliveryShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeliveryShopView.swift; sourceTree = "<group>"; };
+		200AF2002B5CE1EF008E8749 /* AddDeliveryShopSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeliveryShopSheetView.swift; sourceTree = "<group>"; };
 		200AF2022B5CE2AC008E8749 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		2042832E2B5D0ACB00024580 /* MapInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfoView.swift; sourceTree = "<group>"; };
+		204283302B5D141900024580 /* ShopInfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoSheetView.swift; sourceTree = "<group>"; };
 		2046B7D92B53D63C00DDF21C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2046B7DB2B53E21600DDF21C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2046B7DE2B53E44F00DDF21C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -241,9 +243,10 @@
 			isa = PBXGroup;
 			children = (
 				20B543C02B569604009A2480 /* HomeView.swift */,
-				200AF2002B5CE1EF008E8749 /* AddDeliveryShopView.swift */,
+				200AF2002B5CE1EF008E8749 /* AddDeliveryShopSheetView.swift */,
 				2046B7EF2B5407B300DDF21C /* MapView.swift */,
 				2042832E2B5D0ACB00024580 /* MapInfoView.swift */,
+				204283302B5D141900024580 /* ShopInfoSheetView.swift */,
 				2046B7DB2B53E21600DDF21C /* ProfileView.swift */,
 				2046B7D92B53D63C00DDF21C /* LoginView.swift */,
 				208C70E32B53D4CF000B9B51 /* RegisterView.swift */,
@@ -404,10 +407,11 @@
 				2046B7DC2B53E21600DDF21C /* ProfileView.swift in Sources */,
 				20B543C12B569604009A2480 /* HomeView.swift in Sources */,
 				2042832F2B5D0ACB00024580 /* MapInfoView.swift in Sources */,
+				204283312B5D141900024580 /* ShopInfoSheetView.swift in Sources */,
 				206C2B7E2B52A1770063DC4A /* Persistence.swift in Sources */,
 				2046B7F02B5407B400DDF21C /* MapView.swift in Sources */,
 				2046B7DA2B53D63C00DDF21C /* LoginView.swift in Sources */,
-				200AF2012B5CE1EF008E8749 /* AddDeliveryShopView.swift in Sources */,
+				200AF2012B5CE1EF008E8749 /* AddDeliveryShopSheetView.swift in Sources */,
 				20B543C32B56971D009A2480 /* Shop.swift in Sources */,
 				200AF2032B5CE2AD008E8749 /* ShopViewModel.swift in Sources */,
 				206C2B772B52A1740063DC4A /* ContentView.swift in Sources */,

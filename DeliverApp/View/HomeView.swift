@@ -27,7 +27,7 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $isSheetPresented) {
-                AddDeliveryShopView(isSheetPresented: $isSheetPresented)
+                AddDeliveryShopSheetView(isSheetPresented: $isSheetPresented)
             }
         }
     }

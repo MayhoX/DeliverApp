@@ -1,5 +1,5 @@
 //
-//  AddDeliveryShopView.swift
+//  AddDeliveryShopSheetView.swift
 //  DeliverApp
 //
 //  Created by Evan Wong on 21/1/2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-struct AddDeliveryShopView: View {
+struct AddDeliveryShopSheetView: View {
     
     @State private var name: String = ""
     @State private var latitude: String = ""
@@ -121,7 +121,7 @@ struct AddDeliveryShopView: View {
 }
 
 
-extension AddDeliveryShopView: AuthProtocol {
+extension AddDeliveryShopSheetView: AuthProtocol {
     var formIsValid: Bool {
         return !name.isEmpty &&
         !latitude.isEmpty &&
@@ -133,5 +133,5 @@ extension AddDeliveryShopView: AuthProtocol {
 
 
 #Preview {
-    AddDeliveryShopView(isSheetPresented: .constant(true))
+    AddDeliveryShopSheetView(isSheetPresented: .constant(true))
 }
