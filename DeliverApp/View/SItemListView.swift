@@ -12,8 +12,8 @@ struct SItemListView: View {
     var onShopSelected: (SItem) -> Void
 
     var body: some View {
-        List(sitems) { sitem in
-            NavigationLink(destination: SItemDetailView(sitem: sitem)) {
+        NavigationView {
+            List(sitems) { sitem in
                 SItemListRowView(sitem: sitem, onSelected: {
                     onShopSelected(sitem)
                 })
@@ -25,33 +25,35 @@ struct SItemListView: View {
 struct SItemListRowView: View {
     var sitem: SItem
     var onSelected: () -> Void
-    
+
     var body: some View {
-        HStack {
-            if let uiImage = UIImage(data: sitem.image) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 120, height: 80) // Adjust the size as needed
-            }
-            
-            VStack(alignment: .leading) {
-                Text(sitem.name)
-                    .font(.headline)
-                Text(sitem.description)
-                    .font(.subheadline)
-                Text(sitem.price)
-                    .font(.subheadline)
-            }
-            
-            Spacer()
-            
-            Button(action: {
-                onSelected()
-            }) {
+        NavigationLink(destination: SItemDetailView(sitem: sitem)) {
+            HStack {
+                if let uiImage = UIImage(data: sitem.image) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 120, height: 80) 
+                }
+
+                VStack(alignment: .leading) {
+                    Text(sitem.name)
+                        .font(.headline)
+                        .foregroundColor(.black)
+                    Text(sitem.description)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    
+                    Text("$\(sitem.price)")
+                        .font(.subheadline)
+                        .foregroundColor(.black)
+                }
+
+                Spacer()
+
                 
             }
+            .padding()
         }
-        .padding()
     }
 }

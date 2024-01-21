@@ -18,6 +18,8 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Text("Welcome \(userViewModel.currentUser?.fullName ?? "User")")
+                    .font(.headline)
                 if !shopViewModel.shops.isEmpty {
                     ShopListView(shops: shopViewModel.shops, onShopSelected: { shop in
                         selectedShop = shop

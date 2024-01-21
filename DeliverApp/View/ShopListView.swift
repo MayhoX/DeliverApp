@@ -32,7 +32,7 @@ struct ShopListRowView: View {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 120, height: 80) // Adjust the size as needed
+                    .frame(width: 120, height: 80) 
             }
             
             VStack(alignment: .leading) {
@@ -40,15 +40,12 @@ struct ShopListRowView: View {
                     .font(.headline)
                 Text(shop.address)
                     .font(.subheadline)
+                    .foregroundColor(.gray)
             }
             
             Spacer()
             
-            Button(action: {
-                onSelected()
-            }) {
-      
-            }
+            
         }
         .padding()
     }
