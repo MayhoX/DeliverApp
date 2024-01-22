@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ShoppingCartView: View {
     @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
+    @State private var isShowingPaymentView = false
     
     var body: some View {
         NavigationView {
@@ -43,9 +44,28 @@ struct ShoppingCartView: View {
                 }
                 
                 Button(action: {
-                    
+                    isShowingPaymentView = true
                 }) {
-                    Text("Checkout")
+                    HStack {
+                        Image(systemName: "applelogo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.white)
+                        Text("Go Pay")
+                            .padding()
+                            .foregroundColor(.white)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.black)
+                    .cornerRadius(8)
+                }
+                .padding()
+                .sheet(isPresented: $isShowingPaymentView) {
+                    NavigationView {
+                        PaymentView()
+                    }
                 }
             }
             .navigationTitle("Shopping Cart")

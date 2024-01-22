@@ -55,6 +55,9 @@
 		20B543C12B569604009A2480 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B543C02B569604009A2480 /* HomeView.swift */; };
 		20B543C32B56971D009A2480 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B543C22B56971D009A2480 /* Shop.swift */; };
 		20CB7CE12B57F02400B4291E /* FaceIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CB7CE02B57F02300B4291E /* FaceIDModel.swift */; };
+		20DE697B2B5E4D4400A13BB7 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DE697A2B5E4D4400A13BB7 /* PaymentView.swift */; };
+		20DE697D2B5E4DAF00A13BB7 /* ApplePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DE697C2B5E4DAF00A13BB7 /* ApplePayView.swift */; };
+		20DE69802B5E738200A13BB7 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 20DE697F2B5E738200A13BB7 /* MobileNetV2.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,9 @@
 		20B543C02B569604009A2480 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		20B543C22B56971D009A2480 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		20CB7CE02B57F02300B4291E /* FaceIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDModel.swift; sourceTree = "<group>"; };
+		20DE697A2B5E4D4400A13BB7 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		20DE697C2B5E4DAF00A13BB7 /* ApplePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayView.swift; sourceTree = "<group>"; };
+		20DE697F2B5E738200A13BB7 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +226,7 @@
 		206C2B732B52A1740063DC4A /* DeliverApp */ = {
 			isa = PBXGroup;
 			children = (
+				20DE697E2B5E737600A13BB7 /* AI */,
 				2046B7EE2B53EBD000DDF21C /* app */,
 				2046B7ED2B53EBA900DDF21C /* coreData */,
 				2046B7DD2B53E43600DDF21C /* Model */,
@@ -294,6 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				20840D002B5E1DF10028780D /* ShoppingCartView.swift */,
+				20DE697A2B5E4D4400A13BB7 /* PaymentView.swift */,
+				20DE697C2B5E4DAF00A13BB7 /* ApplePayView.swift */,
 			);
 			path = "Shopping Cart";
 			sourceTree = "<group>";
@@ -318,6 +327,14 @@
 				2046B7E82B53E88500DDF21C /* ViewModel */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		20DE697E2B5E737600A13BB7 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				20DE697F2B5E738200A13BB7 /* MobileNetV2.mlmodel */,
+			);
+			path = AI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,10 +489,12 @@
 				20840D012B5E1DF10028780D /* ShoppingCartView.swift in Sources */,
 				2046B7DC2B53E21600DDF21C /* ProfileView.swift in Sources */,
 				20B543C12B569604009A2480 /* HomeView.swift in Sources */,
+				20DE697D2B5E4DAF00A13BB7 /* ApplePayView.swift in Sources */,
 				2042832F2B5D0ACB00024580 /* MapInfoView.swift in Sources */,
 				20840D092B5E1F910028780D /* ShoppingCartViewModel.swift in Sources */,
 				204283312B5D141900024580 /* ShopInfoSheetView.swift in Sources */,
 				20840CF72B5D80630028780D /* AddItemSheetView.swift in Sources */,
+				20DE69802B5E738200A13BB7 /* MobileNetV2.mlmodel in Sources */,
 				20840CF92B5D837F0028780D /* SItem.swift in Sources */,
 				206C2B7E2B52A1770063DC4A /* Persistence.swift in Sources */,
 				2046B7F02B5407B400DDF21C /* MapView.swift in Sources */,
@@ -487,6 +506,7 @@
 				204283352B5D203600024580 /* ShopDetailView.swift in Sources */,
 				20840CFD2B5D98160028780D /* SItemListView.swift in Sources */,
 				20840CFF2B5D9A820028780D /* SItemDetailView.swift in Sources */,
+				20DE697B2B5E4D4400A13BB7 /* PaymentView.swift in Sources */,
 				206C2B752B52A1740063DC4A /* DeliverAppApp.swift in Sources */,
 				2046B7DF2B53E44F00DDF21C /* User.swift in Sources */,
 				20CB7CE12B57F02400B4291E /* FaceIDModel.swift in Sources */,
