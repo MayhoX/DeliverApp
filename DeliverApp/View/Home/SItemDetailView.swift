@@ -11,9 +11,13 @@ struct SItemDetailView: View {
     
     
     @StateObject var sitemViewModel = SItemViewModel()
+    @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var sitem: SItem
     @State private var count = 1
+    @State private var showAlert = false
+    
     var body: some View {
         VStack {
             if let uiImage = UIImage(data: sitem.image) {
@@ -59,7 +63,8 @@ struct SItemDetailView: View {
             Spacer()
             
             Button(action: {
-                
+                shoppingCartViewModel.addToCart(sitem: sitem, quantity: count)
+                showAlert = true
             }) {
                 Text("Add to Cart")
                     .font(.headline)
@@ -68,6 +73,15 @@ struct SItemDetailView: View {
         }
         .padding(.vertical, 20)
         .padding(.horizontal, 10)
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Item Added"),
+                message: Text("The item has been added to your cart."),
+                dismissButton: .default(Text("OK")) {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            )
+        }
         Divider()
         
         .navigationTitle("Item Detail")

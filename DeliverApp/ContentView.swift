@@ -12,7 +12,7 @@ import GoogleMaps
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var faceIDModel: FaceIDModel
-    
+    @EnvironmentObject var cartViewModel: ShoppingCartViewModel
     init() {
         GMSServices.provideAPIKey("AIzaSyD_zf_tp4udYWjf3DfanaTMAEu6rmNYphA")
     }
@@ -31,6 +31,10 @@ struct ContentView: View {
                 MapView()
                     .tabItem {
                         Label("Map", systemImage: "map")
+                    }
+                ShoppingCartView()
+                    .tabItem {
+                        Label("Cart", systemImage: "cart")
                     }
                 ProfileView()
                     .tabItem {

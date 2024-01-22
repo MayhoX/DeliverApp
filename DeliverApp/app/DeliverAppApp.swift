@@ -11,6 +11,7 @@ import Firebase
 struct DeliverAppApp: App {
     @StateObject var viewModel = AuthViewModel()
     @StateObject var faceIDModel = FaceIDModel()
+    @StateObject var cartViewModel = ShoppingCartViewModel()
     
     init() {
         FirebaseApp.configure()
@@ -26,6 +27,7 @@ struct DeliverAppApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(viewModel)
                 .environmentObject(faceIDModel)
+                .environmentObject(cartViewModel)
                 
         }
     }
