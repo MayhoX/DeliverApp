@@ -7,6 +7,8 @@
 
 import SwiftUI
 import PhotosUI
+import CoreML
+
 
 struct AddItemSheetView: View {
     @State private var name: String = ""
@@ -17,6 +19,8 @@ struct AddItemSheetView: View {
     @State var data: Data?
     @State var selectedItem: [PhotosPickerItem] = []
     @StateObject var sItemViewModel = SItemViewModel()
+    @State private var foodType: String = ""
+    let aiClassifier = AIClassifier()
     
     var body: some View {
         VStack{
@@ -58,6 +62,35 @@ struct AddItemSheetView: View {
                 .shadow(radius: 1)
                 .padding(.horizontal)
                 .padding(.bottom, 5)
+            
+            
+            HStack {
+                TextField("Food type", text: $foodType)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(UIColor.label), lineWidth: 3)
+                    )
+                    .cornerRadius(10.0)
+                    .shadow(radius: 1)
+                    .padding(.horizontal)
+                    .padding(.bottom, 5)
+                
+                Button(action: {
+                    if let imageData = data {
+                        aiClassifier.classifyImage(UIImage(data: imageData)!) { result in
+                            switch result {
+                            case .success(let detectedFoodType):
+                                foodType = detectedFoodType
+                            case .failure(let error):
+                                print("Error: \(error)")
+                            }
+                        }
+                    }
+                }) {
+                    Text("AI check food type")
+                }
+            }
             
             TextField("Description", text: $description)
                 .padding()
