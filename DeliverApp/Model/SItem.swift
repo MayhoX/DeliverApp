@@ -15,6 +15,7 @@ struct SItem: Identifiable, Codable{
     let description : String
     let price : String
     let image : Data
+    let type: String
 }
 
 

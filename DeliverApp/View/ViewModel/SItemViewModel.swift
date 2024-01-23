@@ -24,9 +24,9 @@ class SItemViewModel: ObservableObject{
         }
     }
     
-    func AddSItem(name: String, description: String, price: String, image: Data, shopID: String) async throws{
+    func AddSItem(name: String, description: String, price: String, image: Data, shopID: String, type: String) async throws{
         do{
-            let sitem = SItem(id: UUID().uuidString, name: name, description: description, price: price, image: image)
+            let sitem = SItem(id: UUID().uuidString, name: name, description: description, price: price, image: image, type: type)
             let encodedShop = try Firestore.Encoder().encode(sitem)
             try await Firestore.firestore().collection("shops").document(shopID).collection("sitems").document(sitem.id).setData(encodedShop)
             

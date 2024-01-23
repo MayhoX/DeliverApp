@@ -40,9 +40,13 @@ struct SItemListRowView: View {
                     Text(sitem.name)
                         .font(.headline)
                         .foregroundColor(.black)
+                    
                     Text(sitem.description)
                         .font(.subheadline)
                         .foregroundColor(.gray)
+                    
+                    Text(sitem.type)
+                        .font(.subheadline)
                     
                     Text("$\(sitem.price)")
                         .font(.subheadline)

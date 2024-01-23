@@ -14,7 +14,6 @@ class AIClassifier {
     let model: MobileNetV2
 
     init() {
-        // Load MobileNetV2 Core ML model
         model = try! MobileNetV2(configuration: MLModelConfiguration())
     }
 

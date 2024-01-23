@@ -30,9 +30,12 @@ struct SItemDetailView: View {
             Text("Name: \(sitem.name)")
                 .font(.title)
             
-            Text("Address: \(sitem.description)")
+            Text("Description: \(sitem.description)")
                 .font(.subheadline)
                 .foregroundColor(.gray)
+            
+            Text("Type: \(sitem.type)")
+                .font(.subheadline)
             
             Text("Price: $\(sitem.price)")
                 .font(.subheadline)

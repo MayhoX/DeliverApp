@@ -19,7 +19,7 @@ struct AddItemSheetView: View {
     @State var data: Data?
     @State var selectedItem: [PhotosPickerItem] = []
     @StateObject var sItemViewModel = SItemViewModel()
-    @State private var foodType: String = ""
+    @State private var type: String = ""
     let aiClassifier = AIClassifier()
     
     var body: some View {
@@ -65,7 +65,7 @@ struct AddItemSheetView: View {
             
             
             HStack {
-                TextField("Food type", text: $foodType)
+                TextField("Food type", text: $type)
                     .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
@@ -73,24 +73,23 @@ struct AddItemSheetView: View {
                     )
                     .cornerRadius(10.0)
                     .shadow(radius: 1)
-                    .padding(.horizontal)
-                    .padding(.bottom, 5)
                 
                 Button(action: {
                     if let imageData = data {
                         aiClassifier.classifyImage(UIImage(data: imageData)!) { result in
                             switch result {
                             case .success(let detectedFoodType):
-                                foodType = detectedFoodType
+                                type = detectedFoodType
                             case .failure(let error):
                                 print("Error: \(error)")
                             }
                         }
                     }
                 }) {
-                    Text("AI check food type")
+                    Text("AI detect the type")
                 }
             }
+            .padding()
             
             TextField("Description", text: $description)
                 .padding()
@@ -117,8 +116,7 @@ struct AddItemSheetView: View {
             
             Button(action: {
                 Task {
-                    
-                    try await sItemViewModel.AddSItem(name: name, description: description, price: price, image: data!, shopID: shopID)
+                    try await sItemViewModel.AddSItem(name: name, description: description, price: price, image: data!, shopID: shopID, type: type)
                     isSheetPresented = false
                 }
                     
