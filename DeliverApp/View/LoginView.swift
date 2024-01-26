@@ -51,7 +51,7 @@ struct LoginView: View {
                         .padding(.bottom, 20)
                     
                     
-                    if $viewModel.userSession != nil {
+                    if viewModel.userSession != nil {
                         Button(action: {
                             faceIDModel.evaluatePolicy()
                         }) {

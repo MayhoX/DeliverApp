@@ -164,7 +164,6 @@
 				2046B7DE2B53E44F00DDF21C /* User.swift */,
 				20B543C22B56971D009A2480 /* Shop.swift */,
 				20840CF82B5D837F0028780D /* SItem.swift */,
-				20CB7CE02B57F02300B4291E /* FaceIDModel.swift */,
 				20840D062B5E1F050028780D /* ShoppingCart.swift */,
 				20840D0A2B5E22E90028780D /* ShoppingCartItem.swift */,
 			);
@@ -174,6 +173,7 @@
 		2046B7E82B53E88500DDF21C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				20CB7CE02B57F02300B4291E /* FaceIDModel.swift */,
 				2046B7EB2B53E8B900DDF21C /* AuthViewModel.swift */,
 				209DF3192B5543AF004CA8B7 /* MapViewModel.swift */,
 				200AF2022B5CE2AC008E8749 /* ShopViewModel.swift */,

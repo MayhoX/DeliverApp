@@ -37,13 +37,6 @@ struct ProfileView: View {
                 }
                 
                 Section("Account") {
-                    NavigationLink(destination: Text("Destination")) {
-                        Text("Edit Profile")
-                    }
-                    
-                    NavigationLink(destination: Text("Destination")) {
-                        Text("Change Password")
-                    }
                     
                     Button {
                         showingLogoutAlert.toggle()

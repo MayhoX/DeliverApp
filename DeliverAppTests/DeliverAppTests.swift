@@ -35,6 +35,24 @@ final class DeliverAppTests: XCTestCase {
         XCTAssertNotNil(authViewModel.userSession, "User session should not be nil after sign up.")
         XCTAssertEqual(authViewModel.loginMethod, .emailAndPassword, "Login method should be set to emailAndPassword.")
     }
+    
+    @MainActor func testSignOut() async throws {
+        let authViewModel = AuthViewModel()
+        
+        do {
+            try await authViewModel.signOut()
+            
+            XCTAssertNil(authViewModel.userSession, "User session should be nil after sign out.")
+            XCTAssertNil(authViewModel.currentUser, "Current user should be nil after sign out.")
+            XCTAssertFalse(authViewModel.login, "Login status should be false after sign out.")
+            XCTAssertEqual(authViewModel.loginMethod, .none, "Login method should be set to none after sign out.")
+            
+        } catch {
+            XCTFail("Sign out failed with error: \(error.localizedDescription)")
+        }
+    }
+    
+    
 
     
     func testAddShop() async throws {   //Show View Test add shop
@@ -47,7 +65,7 @@ final class DeliverAppTests: XCTestCase {
     }
     
 
-    func testAddSItem() async throws {
+    func testAddSItem() async throws {   //Test add Item
         let sitemViewModel = SItemViewModel()
         do {
             try await sitemViewModel.AddSItem(name: "test sitem", description: "test description", price: "123", image: Data(), shopID: "123456", type: "test type")
@@ -56,7 +74,7 @@ final class DeliverAppTests: XCTestCase {
         }
     }
     
-    func testAddToCart()  throws {
+    func testAddToCart()  throws {    //Test Add itme to cart
         let shoppingCartViewModel = ShoppingCartViewModel()
         let sitem = SItem(id: "123", name: "Test Item", description: "Test Description", price: "19.99", image: Data(), type: "Test Type")
         let quantity = 2
@@ -68,7 +86,7 @@ final class DeliverAppTests: XCTestCase {
         }
     }
 
-        func testRemoveFromCart() throws {
+        func testRemoveFromCart() throws {       //Test Remove itme to cart
             let shoppingCartViewModel = ShoppingCartViewModel()
             let cartItem = ShoppingCartItem(id: "456", sitem: SItem(id: "789", name: "Test Item", description: "Test Description", price: "19.99", image: Data(), type: "Test Type"), quantity: 3)
 
@@ -79,7 +97,7 @@ final class DeliverAppTests: XCTestCase {
             }
         }
 
-        func testUpdateQuantity() throws {
+        func testUpdateQuantity() throws {          //Test Updata Quantity
             let shoppingCartViewModel = ShoppingCartViewModel()
             let cartItem = ShoppingCartItem(id: "789", sitem: SItem(id: "123", name: "Test Item", description: "Test Description", price: "19.99", image: Data(), type: "Test Type"), quantity: 3)
             
@@ -90,7 +108,7 @@ final class DeliverAppTests: XCTestCase {
             }
         }
 
-        func testClearAll() throws {
+        func testClearAll() throws {                //Test Shopping cart clear all
             let shoppingCartViewModel = ShoppingCartViewModel()
 
             do {
