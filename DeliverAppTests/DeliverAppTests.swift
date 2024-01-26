@@ -8,6 +8,7 @@
 import XCTest
 @testable import DeliverApp
 
+
 final class DeliverAppTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -35,7 +36,7 @@ final class DeliverAppTests: XCTestCase {
     }
 
     
-    func testAddShop() async throws {
+    func testAddShop() async throws {   //Show View Test add shop
         let showViewModel = ShopViewModel()
         do {
             var result = try await showViewModel.AddShop(name: "test shop", latitude: "123.456", longitude: "789.012", address: "Test Address", image: Data())
@@ -44,8 +45,15 @@ final class DeliverAppTests: XCTestCase {
         }
     }
     
-    
-    
+
+    func testAddSItem() async throws {
+        let sitemViewModel = SItemViewModel()
+        do {
+            var result = try await sitemViewModel.AddSItem(name: "test sitem", description: "test description", price: "123", image: Data(), shopID: "123456", type: "test type")
+        } catch {
+            XCTFail("Adding item failed with error: \(error.localizedDescription)")
+        }
+    }
     
 
 }

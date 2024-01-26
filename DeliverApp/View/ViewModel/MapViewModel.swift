@@ -38,14 +38,16 @@ class MapViewModel: ObservableObject {
     
     
     func mapAddShop(mapView: GMSMapView) {
-            for shop in shops {
-                if let latitude = Double(shop.latitude), let longitude = Double(shop.longitude) {
-                    let position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                    let marker = GMSMarker(position: position)
-                    marker.title = shop.name
-                    marker.map = mapView
-                }
+        for shop in shops {
+            if let latitude = Double(shop.latitude), let longitude = Double(shop.longitude) {
+                let position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                let marker = GMSMarker(position: position)
+                marker.title = shop.name
+                marker.map = mapView
             }
         }
+    }
+    
+    
     
 }
