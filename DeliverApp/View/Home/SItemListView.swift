@@ -39,7 +39,7 @@ struct SItemListRowView: View {
                 VStack(alignment: .leading) {
                     Text(sitem.name)
                         .font(.headline)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(UIColor.black))
                     
                     Text(sitem.description)
                         .font(.subheadline)
@@ -50,7 +50,7 @@ struct SItemListRowView: View {
                     
                     Text("$\(sitem.price)")
                         .font(.subheadline)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(UIColor.black))
                 }
 
                 Spacer()

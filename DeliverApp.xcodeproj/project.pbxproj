@@ -39,7 +39,6 @@
 		206C2BAA2B52A5100063DC4A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 206C2BA92B52A5100063DC4A /* FirebaseAuth */; };
 		206C2BAE2B52A5190063DC4A /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 206C2BAD2B52A5190063DC4A /* FirebaseAppCheck */; };
 		206C2BB02B52A51E0063DC4A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 206C2BAF2B52A51E0063DC4A /* FirebaseFirestore */; };
-		206C2BB22B52A5EB0063DC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C2BB12B52A5EB0063DC4A /* AppDelegate.swift */; };
 		20840CF72B5D80630028780D /* AddItemSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20840CF62B5D80630028780D /* AddItemSheetView.swift */; };
 		20840CF92B5D837F0028780D /* SItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20840CF82B5D837F0028780D /* SItem.swift */; };
 		20840CFB2B5D83DC0028780D /* SItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20840CFA2B5D83DC0028780D /* SItemViewModel.swift */; };
@@ -102,7 +101,6 @@
 		206C2B902B52A1770063DC4A /* DeliverAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliverAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		206C2B942B52A1770063DC4A /* DeliverAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverAppUITests.swift; sourceTree = "<group>"; };
 		206C2B962B52A1770063DC4A /* DeliverAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		206C2BB12B52A5EB0063DC4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20840CF62B5D80630028780D /* AddItemSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemSheetView.swift; sourceTree = "<group>"; };
 		20840CF82B5D837F0028780D /* SItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SItem.swift; sourceTree = "<group>"; };
 		20840CFA2B5D83DC0028780D /* SItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SItemViewModel.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				206C2B782B52A1770063DC4A /* Assets.xcassets */,
 				2046B7E02B53E7A100DDF21C /* GoogleService-Info.plist */,
 				206C2B7A2B52A1770063DC4A /* Preview Content */,
-				206C2BB12B52A5EB0063DC4A /* AppDelegate.swift */,
 			);
 			path = DeliverApp;
 			sourceTree = "<group>";
@@ -512,7 +509,6 @@
 				20CB7CE12B57F02400B4291E /* FaceIDModel.swift in Sources */,
 				20840D0B2B5E22E90028780D /* ShoppingCartItem.swift in Sources */,
 				208C70E42B53D4CF000B9B51 /* RegisterView.swift in Sources */,
-				206C2BB22B52A5EB0063DC4A /* AppDelegate.swift in Sources */,
 				206C2B812B52A1770063DC4A /* DeliverApp.xcdatamodeld in Sources */,
 				20840CFB2B5D83DC0028780D /* SItemViewModel.swift in Sources */,
 				204283332B5D201500024580 /* ShopListView.swift in Sources */,
@@ -684,8 +680,11 @@
 				DEVELOPMENT_TEAM = N7Z7BVW7UA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses camera";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app uses Face ID to confirm your identity";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses location to confirm your identity";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app uses photo libarary";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses photo libarary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -716,8 +715,11 @@
 				DEVELOPMENT_TEAM = N7Z7BVW7UA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses camera";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app uses Face ID to confirm your identity";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses location to confirm your identity";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app uses photo libarary";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses photo libarary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

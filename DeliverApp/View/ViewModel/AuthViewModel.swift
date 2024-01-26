@@ -34,21 +34,21 @@ class AuthViewModel: ObservableObject{
     }
     
     func setFaceIDModel(_ faceIDModel: FaceIDModel) {
-            self.faceIDModel = faceIDModel
-        }
+        self.faceIDModel = faceIDModel
+    }
     
     
     func signIn(email: String, password: String) async throws {
-            do {
-                let result = try await Auth.auth().signIn(withEmail: email, password: password)
-                self.userSession = result.user
-                self.login = true
-                self.loginMethod = .emailAndPassword
-                await fetchUser()
-            } catch {
-                print("Error Login \(error.localizedDescription)")
-            }
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            self.userSession = result.user
+            self.login = true
+            self.loginMethod = .emailAndPassword
+            await fetchUser()
+        } catch {
+            print("Error Login \(error.localizedDescription)")
         }
+    }
     
     
     func signUp(email: String, password: String, firstName: String, lastName: String) async throws {

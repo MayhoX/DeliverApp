@@ -14,7 +14,7 @@ struct LoginView: View {
     @State private var password: String = ""
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var faceIDModel: FaceIDModel
-    
+
     var body: some View {
         NavigationStack{
             VStack{
@@ -51,7 +51,7 @@ struct LoginView: View {
                         .padding(.bottom, 20)
                     
                     
-                    if viewModel.userSession != nil {
+                    if $viewModel.userSession != nil {
                         Button(action: {
                             faceIDModel.evaluatePolicy()
                         }) {
@@ -85,7 +85,7 @@ struct LoginView: View {
                             .opacity(formIsValid ? 1.0 : 0.5)
 
                     }
-                    
+
                     
                     Spacer()
                     
@@ -101,17 +101,11 @@ struct LoginView: View {
                         }
                         .font(.system(size: 14))
                     }
-                    
                 }
+                
             }
         }
     }
-    
-
-    
-    
-    
-    
 }
 
 extension LoginView: AuthProtocol {
