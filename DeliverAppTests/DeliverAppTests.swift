@@ -22,6 +22,7 @@ final class DeliverAppTests: XCTestCase {
     @MainActor func testSignIn() async throws {   //SignIn
         let authViewModel = AuthViewModel()
         var result = try await authViewModel.signIn(email: "test@gmail.com", password: "123456")
+        
         XCTAssertNotNil(authViewModel.userSession)
         XCTAssertTrue(authViewModel.login)
         XCTAssertEqual(authViewModel.loginMethod, .emailAndPassword)
@@ -39,7 +40,7 @@ final class DeliverAppTests: XCTestCase {
     func testAddShop() async throws {   //Show View Test add shop
         let showViewModel = ShopViewModel()
         do {
-            var result = try await showViewModel.AddShop(name: "test shop", latitude: "123.456", longitude: "789.012", address: "Test Address", image: Data())
+            try await showViewModel.AddShop(name: "test shop", latitude: "123.456", longitude: "789.012", address: "Test Address", image: Data())
         } catch {
             XCTFail("Adding shop failed with error: \(error.localizedDescription)")
         }
@@ -49,11 +50,55 @@ final class DeliverAppTests: XCTestCase {
     func testAddSItem() async throws {
         let sitemViewModel = SItemViewModel()
         do {
-            var result = try await sitemViewModel.AddSItem(name: "test sitem", description: "test description", price: "123", image: Data(), shopID: "123456", type: "test type")
+            try await sitemViewModel.AddSItem(name: "test sitem", description: "test description", price: "123", image: Data(), shopID: "123456", type: "test type")
         } catch {
             XCTFail("Adding item failed with error: \(error.localizedDescription)")
         }
     }
+    
+    func testAddToCart()  throws {
+        let shoppingCartViewModel = ShoppingCartViewModel()
+        let sitem = SItem(id: "123", name: "Test Item", description: "Test Description", price: "19.99", image: Data(), type: "Test Type")
+        let quantity = 2
+        
+        do {
+            shoppingCartViewModel.addToCart(sitem: sitem, quantity: quantity)
+        } catch {
+            XCTFail("Adding to cart failed with error: \(error.localizedDescription)")
+        }
+    }
+
+        func testRemoveFromCart() throws {
+            let shoppingCartViewModel = ShoppingCartViewModel()
+            let cartItem = ShoppingCartItem(id: "456", sitem: SItem(id: "789", name: "Test Item", description: "Test Description", price: "19.99", image: Data(), type: "Test Type"), quantity: 3)
+
+            do {
+                shoppingCartViewModel.removeFromCart(cartItem: cartItem)
+            } catch {
+                XCTFail("Remove to cart failed with error: \(error.localizedDescription)")
+            }
+        }
+
+        func testUpdateQuantity() throws {
+            let shoppingCartViewModel = ShoppingCartViewModel()
+            let cartItem = ShoppingCartItem(id: "789", sitem: SItem(id: "123", name: "Test Item", description: "Test Description", price: "19.99", image: Data(), type: "Test Type"), quantity: 3)
+            
+            do {
+                shoppingCartViewModel.updateQuantity(cartItem: cartItem, quantity: 5)
+            } catch {
+                XCTFail("Update quantity failed with error: \(error.localizedDescription)")
+            }
+        }
+
+        func testClearAll() throws {
+            let shoppingCartViewModel = ShoppingCartViewModel()
+
+            do {
+                shoppingCartViewModel.clearAll()
+            } catch {
+                XCTFail("Clearing all items failed with error: \(error.localizedDescription)")
+            }
+        }
     
 
 }
