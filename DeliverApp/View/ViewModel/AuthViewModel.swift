@@ -38,11 +38,11 @@ class AuthViewModel: ObservableObject{
     }
     
     
-    func signIn(email: String, password: String) async throws {
+    func signIn(email: String, password: String) async throws {    //signIn
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
-            self.login = true
+            self.login = true           //set login to true
             self.loginMethod = .emailAndPassword
             await fetchUser()
         } catch {
@@ -51,7 +51,7 @@ class AuthViewModel: ObservableObject{
     }
     
     
-    func signUp(email: String, password: String, firstName: String, lastName: String) async throws {
+    func signUp(email: String, password: String, firstName: String, lastName: String) async throws {  //signuUp
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user

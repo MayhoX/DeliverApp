@@ -18,7 +18,7 @@ final class DeliverAppTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    @MainActor func testSignIn() async throws {
+    @MainActor func testSignIn() async throws {   //SignIn
         let authViewModel = AuthViewModel()
         var result = try await authViewModel.signIn(email: "test@gmail.com", password: "123456")
         XCTAssertNotNil(authViewModel.userSession)
@@ -27,12 +27,25 @@ final class DeliverAppTests: XCTestCase {
         
     }
 
-    @MainActor func testSignUp() async throws {
+    @MainActor func testSignUp() async throws {   //SignUp
         let authViewModel = AuthViewModel()
         var result = try await authViewModel.signUp(email: "test1@gmail.com", password: "123456", firstName: "FN", lastName: "LN")
         XCTAssertNotNil(authViewModel.userSession, "User session should not be nil after sign up.")
         XCTAssertEqual(authViewModel.loginMethod, .emailAndPassword, "Login method should be set to emailAndPassword.")
     }
 
+    
+    func testAddShop() async throws {
+        let showViewModel = ShopViewModel()
+        do {
+            var result = try await showViewModel.AddShop(name: "test shop", latitude: "123.456", longitude: "789.012", address: "Test Address", image: Data())
+        } catch {
+            XCTFail("Adding shop failed with error: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+    
 
 }
