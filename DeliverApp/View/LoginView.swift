@@ -14,6 +14,8 @@ struct LoginView: View {
     @State private var password: String = ""
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var faceIDModel: FaceIDModel
+    @State private var showAlert = false
+    
 
     var body: some View {
         NavigationStack{
@@ -71,7 +73,12 @@ struct LoginView: View {
                     
                     Button(action: {
                         Task {
-                            try await viewModel.signIn(email: email, password: password)
+                            do {
+                                try await viewModel.signIn(email: email, password: password)
+                            } catch {
+                                showAlert = true
+                            }
+                            
                         }
                     }) {
                         Text("Login")
@@ -85,7 +92,13 @@ struct LoginView: View {
                             .opacity(formIsValid ? 1.0 : 0.5)
 
                     }
-
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Login Error"),
+                            message: Text("Invalid email or password. Please try again."),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
                     
                     Spacer()
                     

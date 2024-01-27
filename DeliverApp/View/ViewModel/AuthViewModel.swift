@@ -39,15 +39,13 @@ class AuthViewModel: ObservableObject{
     
     
     func signIn(email: String, password: String) async throws {    //signIn
-        do {
-            let result = try await Auth.auth().signIn(withEmail: email, password: password)
-            self.userSession = result.user
-            self.login = true           //set login to true
-            self.loginMethod = .emailAndPassword
-            await fetchUser()
-        } catch {
-            print("Error Login \(error.localizedDescription)")
-        }
+        
+        let result = try await Auth.auth().signIn(withEmail: email, password: password)
+        self.userSession = result.user
+        self.login = true           //set login to true
+        self.loginMethod = .emailAndPassword
+        await fetchUser()
+        
     }
     
     
